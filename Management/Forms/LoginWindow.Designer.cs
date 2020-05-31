@@ -32,9 +32,19 @@
             BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
             this.transition = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.signup = new Management.Controls.SignupControl();
             this.login = new Management.Controls.Login();
-            this.signup = new Management.Controls.Signup();
+            this.pnlWindow.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlWindow
+            // 
+            this.pnlWindow.Controls.Add(this.panel1);
+            this.transition.SetDecoration(this.pnlWindow, BunifuAnimatorNS.DecorationType.None);
+            this.pnlWindow.Size = new System.Drawing.Size(293, 420);
+            this.pnlWindow.Controls.SetChildIndex(this.panel1, 0);
             // 
             // transition
             // 
@@ -57,49 +67,64 @@
             animation1.TransparencyCoeff = 0F;
             this.transition.DefaultAnimation = animation1;
             // 
-            // login
+            // panel1
             // 
-            this.login.BackColor = System.Drawing.Color.White;
-            this.transition.SetDecoration(this.login, BunifuAnimatorNS.DecorationType.None);
-            this.login.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.login.Location = new System.Drawing.Point(20, 60);
-            this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(256, 380);
-            this.login.TabIndex = 1;
+            this.panel1.Controls.Add(this.signup);
+            this.panel1.Controls.Add(this.login);
+            this.transition.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(290, 420);
+            this.panel1.TabIndex = 5;
             // 
             // signup
             // 
             this.signup.BackColor = System.Drawing.Color.White;
             this.transition.SetDecoration(this.signup, BunifuAnimatorNS.DecorationType.None);
             this.signup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.signup.Location = new System.Drawing.Point(20, 60);
+            this.signup.Location = new System.Drawing.Point(0, 0);
             this.signup.Name = "signup";
-            this.signup.Size = new System.Drawing.Size(256, 380);
-            this.signup.TabIndex = 0;
+            this.signup.Size = new System.Drawing.Size(290, 420);
+            this.signup.TabIndex = 4;
+            // 
+            // login
+            // 
+            this.login.BackColor = System.Drawing.Color.White;
+            this.transition.SetDecoration(this.login, BunifuAnimatorNS.DecorationType.None);
+            this.login.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.login.Location = new System.Drawing.Point(0, 0);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(290, 420);
+            this.login.TabIndex = 3;
             // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BarColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
+            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
             this.ClientSize = new System.Drawing.Size(296, 460);
-            this.Controls.Add(this.login);
-            this.Controls.Add(this.signup);
             this.transition.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
-            this.MinimizeBox = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(0, 0);
+            this.LogoImage = global::Management.Properties.Resources.email;
+            this.MaximizeBox = false;
             this.Name = "LoginWindow";
-            this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Login";
+            this.TitleText = "Login";
             this.Load += new System.EventHandler(this.LoginWindow_Load);
+            this.pnlWindow.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Controls.Signup signup;
-        private Controls.Login login;
         private BunifuAnimatorNS.BunifuTransition transition;
+        private System.Windows.Forms.Panel panel1;
+        private Controls.SignupControl signup;
+        private Controls.Login login;
     }
 }
 
